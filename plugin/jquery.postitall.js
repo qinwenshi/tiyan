@@ -105,6 +105,19 @@
         }
     }
 
+    function updateSavedPosition(obj)
+    {
+        var id = obj.data('PIA-id');
+        options = obj.data('PIA-options');
+
+        var posY = $('#idPostIt_' + id).parent().css('left'),
+        posX = $('#idPostIt_' + id).parent().css('top'),
+        divWidth = $('#idPostIt_' + id).width();
+
+        options.posY = posY;
+        options.posX = posX;
+        options.width = divWidth;
+    }
     //Get Next Postit Id
     function getIndex() {
         var index = storageManager.nextId();
@@ -388,6 +401,7 @@
                         if (options.savable) {
                             storageManager.add(options);
                         }
+                        updateSavedPosition(obj);
                     },
                     containment: "parent"
                 });
@@ -417,25 +431,7 @@
                 }
                 setOptions(options, true);
             });
-            //Background and text color
-            /*if ($.minicolors) {
-                //Config: change background-color
-                $('#minicolors_bg_' + index).minicolors({
-                    change: function (hex) {
-                        $(this).closest('.PIApostit').css('background-color', hex);
-                        options.backgroundcolor = hex;
-                        setOptions(options, true);
-                    }
-                });
-                //Config: text color
-                $('#minicolors_text_' + index).minicolors({
-                    change: function (hex) {
-                        $(this).closest('.PIApostit').css('color', hex);
-                        options.textcolor = hex;
-                        setOptions(options, true);
-                    }
-                });
-            }*/
+
             var baseBgColors = ['#D1A60D', '#65853F', '#33A6CC', '#CA2617', '#F4C824', '#919E39', '#4ABEE4', '#DF3513'];
             var baseTcColors = ['#D1A60D', '#65853F', '#33A6CC', '#CA2617', '#F4C824', '#2B2C2B','#919E39', '#4ABEE4', '#DF3513' ];
 
@@ -498,8 +494,6 @@
         };
 
         hideToolbar(obj);
-        //options.onDblClick = stopDoubleClick;
-        //setOptions(options, true);
 
         stopDoubleClick(obj);
         return obj;

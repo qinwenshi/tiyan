@@ -229,7 +229,6 @@ app.directive('bmcEditableLabel', function () {
             };
 
             scope.stopEditing = function() {
-            	
                 scope.editing = false;
             };
         }
