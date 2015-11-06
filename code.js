@@ -10,49 +10,49 @@ var tableLayout = [
           rowspan: 2,
           colspan: 2 },
 
-        { title: "Key Activities",
+        { title: "核心业务",
           icon: "check",
           key: "keyActivities",
           rowspan: 1,
           colspan: 2 },
 
-        { title: "Value Proposition",
+        { title: "价值主张",
           icon: "gift",
           key: "valuePropositions",
           rowspan: 2,
           colspan: 2 },
 
-        { title: "Customer Relationships",
+        { title: "客户关系",
           icon: "heart",
           key: "customerRelationships",
           rowspan: 1,
           colspan: 2 },
 
-        { title: "Customer Segments",
+        { title: "客户细分",
           icon: "user",
           key: "customerSegments",
           rowspan: 2,
           colspan: 2 }
     ], [
-        { title: "Key Resources",
+        { title: "核心资源",
           icon: "tree-deciduous",
           key: "keyResources",
           rowspan: 1,
           colspan: 2 },
 
-        { title: "Channels",
+        { title: "渠道通路",
           icon: "send",
           key: "channels",
           rowspan: 1,
           colspan: 2 }
     ], [
-        { title: "Cost Structure",
+        { title: "成本结构",
           icon: "tags",
           key: "costStructure",
           rowspan: 1,
           colspan: 5 },
 
-        { title: "Revenue Streams",
+        { title: "收入来源",
           icon: "usd",
           key: "revenueStreams",
           rowspan: 1,
