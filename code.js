@@ -146,7 +146,7 @@ app.controller('RootController', ["$scope", 'localStorageService', "$timeout", "
     $scope.snapShot = function(){
         var snap = getCurrentSnapShot();
         var d=new Date();
-        var versionInfo = d.toLocaleDateString() + d.toLocaleTimeString()
+        var versionInfo = d.toLocaleDateString() + " " + d.toLocaleTimeString()
         $scope.history.push({version: versionInfo, content: snap})
     };
 
