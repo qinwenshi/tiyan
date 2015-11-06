@@ -99,9 +99,7 @@
                 minDivHeight += 20;
                 obj.css('height', minDivHeight);
             }
-            options.posY = posY;
-            options.posX = posX;
-            options.width = divWidth;
+            updateSavedPosition(obj)
         }
     }
 
@@ -117,6 +115,7 @@
         options.posY = posY;
         options.posX = posX;
         options.width = divWidth;
+        return obj;
     }
     //Get Next Postit Id
     function getIndex() {
