@@ -143,6 +143,7 @@ app.controller('RootController', ["$scope", 'localStorageService', "$timeout", "
     $scope.clearAll = function(){
       (localStorageService.clearAll)();
       $scope.doc = doc;
+      $scope.history = [];
     };
 
     function loadFromStr(docStr){

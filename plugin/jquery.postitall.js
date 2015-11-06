@@ -385,7 +385,6 @@
                     stop: function () {
                         //Enable draggable postit option
                         $(this).draggable('enable');
-                        autoresize($(this));
                         if (options.savable) {
                             storageManager.add(options);
                         }
@@ -670,7 +669,6 @@
     };
     //Save Local Storage Postits
     $.savePostItAll = function () {
-        console.log("Save Postits to Local Storage");
         $('.PIApostit').each(function () {
             options = $(this).data('PIA-options');
             if(options.savable) {
