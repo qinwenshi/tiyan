@@ -1,24 +1,10 @@
 var doc = {
-    designedFor: "Gloden Customer",
-    designedBy: "Qinwen Shi",
-    date: "Today",
-    version: 7,
-    sections: {
-        keyPartners: [{label: "wheeee!!!"}],
-        keyActivities: [],
-        keyResources: [],
-        valuePropositions: [],
-        customerRelationships: [],
-        channels: [],
-        customerSegments: [{label: "one"}, {label: "two"}, {label: "three"}],
-        costStructure: [],
-        revenueStreams: []
-    }
+
 };
 
 var tableLayout = [
     [
-        { title: "Key Partners",
+        { title: "关键合作",
           icon: "link",
           key: "keyPartners",
           rowspan: 2,
@@ -88,9 +74,6 @@ app.controller('RootController', ["$scope", 'localStorageService', "$timeout", "
 
     $scope.tableLayout = tableLayout;
 
-
-
-
     $scope.menuName = "localHistory";
     $scope.defaultIcon = 'icons-medium empty';
     $scope.menuData = [];
@@ -109,10 +92,10 @@ app.controller('RootController', ["$scope", 'localStorageService', "$timeout", "
     var initTimer = $timeout(function(){
                     listHistorySource();
                     $menuService.loadData($scope.menuName, $scope.dataSource, null, $scope.dataFields, true);
-
                     $timeout.cancel(initTimer);
                 }, 1);
     };
+
     loadHistoryMenu();
 
     function listHistorySource(){
@@ -156,7 +139,6 @@ app.controller('RootController', ["$scope", 'localStorageService', "$timeout", "
       });
       if(arr.length > 0)
         loadFromStr(arr[0].content);
-      //menuId: "110", menuText: "11/6/201512:38:23 PM", type: "root", parentId: 1, selected: true
     };
     $scope.clearAll = function(){
       (localStorageService.clearAll)();
@@ -180,6 +162,7 @@ app.controller('RootController', ["$scope", 'localStorageService', "$timeout", "
         } 
       }
     };
+
     $scope.loadFrom = function(){
       var docStr = prompt("Please enter saved data", "{}");
       loadFromStr(docStr);
@@ -193,12 +176,6 @@ app.controller('RootController', ["$scope", 'localStorageService', "$timeout", "
       });
       return val;
     }
-
-    $scope.archiveDoc = function(){
-      
-
-      alert(getCurrentSnapShot());
-    };
 }]);
 
 app.controller('SectionController', function($scope) {
@@ -221,7 +198,7 @@ app.controller('SectionController', function($scope) {
           'minHeight'       : 20, //resizable min-width
           'minWidth'        : 70, //resizable min-height
           'belongsTo'       : element.id
-      });
+        });
     };
 });
 
