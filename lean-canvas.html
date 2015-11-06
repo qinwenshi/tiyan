@@ -3,21 +3,8 @@
 <html ng-app="BusinessModelCanvas">
 <head>
     <title>Business Model Canvas</title>
-    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
-
-        <link rel="stylesheet" href="libs/jquery-ui-1.10.0.custom.css">
-        <link rel="stylesheet" href="libs/bootstrap.min.css">
-        <link rel="stylesheet" href="libs/bootstrap-responsive.min.css">
-        <link rel="stylesheet" href="libs/jquery.minicolors.css">
-        <link rel="stylesheet" href="libs/colorPicker.min.css">
-
-        <link rel="stylesheet" href="plugin/jquery.postitall.css">
-        <link rel="stylesheet" href="libs/main.css">
-
-        <link rel="stylesheet" href="css/integralui.menu.css" />
-        <link rel="stylesheet" href="css/themes/theme-flat-light.css" />
-
 </head>
 
 <body ng-controller="RootController">
@@ -25,23 +12,16 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4 title">
-
-            <div class='row'>The Business Model Canvas</div>
+            <div class='row'>The Lean Canvas</div>
             <div class='row'>
                 <p>
-                    
                     <button ng-click="archiveDoc()">保存</button>
-                    <button ng-click="snapShot()">存新版</button>
-
-                    <button ng-click="loadFrom()">加载</button>
+                    <button ng-click="loadHistory()">加载</button>
                     <button ng-click="clearAll()">重置</button>
-                    <iui-menu name="{{menuName}}" items="menuData" item-click='loadItem(e)' displayMode="vertical" item-icon="defaultIcon">
-                    </iui-menu>
-                    <div style="clear: both;height:80px;"></div>
                 </p>
             </div>
         </div>
-        <!--<div class="col-md-3 title">
+        <div class="col-md-3 title">
             <div class="header-box">
                 <div class="row">Designed For:</div>
                 <div class="row">
@@ -65,14 +45,14 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-1 title" style="display:inline-block;">
+        <div class="col-md-1 title">
             <div class="header-box">
                 <div class="row">Version:</div>
                 <div class="row">
                     <bmc-editable-label model="doc.version"></bmc-editable-label>
                 </div>
             </div>
-        </div>-->
+        </div>
     </div>
 
     <div class="row">
@@ -82,41 +62,37 @@
                 <td ng-repeat="cell in row"
                     ng-controller="SectionController"
                     class="canvas-cell"
-                    id = "{{cell.key}}"
                     ng-class="{'tall-cell':  cell.rowspan == 2,
                                'short-cell': cell.rowspan == 1}"
                     rowspan="{{cell.rowspan}}"
-                    colspan="{{cell.colspan}}" ng-dblclick="addPostIt($event)">
+                    colspan="{{cell.colspan}}">
                     <div class="table-cell">
                         <span class="canvas-cell-image glyphicon"
                               ng-class="'glyphicon-' + cell.icon"></span>
                         <span>{{cell.title}}</span>
+
+                        <ul>
+                            <li ng-repeat="item in doc.sections[cell.key]">
+                                <bmc-editable-label model="item.label"
+                                                    just-added="item === lastAddedItem">
+                                </bmc-editable-label>
+                            </li>
+                        </ul>
+
+                        <button ng-click="addItem()">+</button>
                     </div>
                 </td>
             </tr>
             </tbody>
         </table>
     </div>
-
 </div>
-<script src="libs/jquery-1.9.1.min.js"></script>
-<script src="libs/jquery-ui-1.10.1.min.js"></script>
-<script src="libs/bootstrap.min.js"></script>
-<script src="libs/jquery.minicolors.js"></script>
-<script src="libs/colorPicker.min.js"></script>
-
-<script src="plugin/jquery.postitall.js"></script>
 
 <script src="angular.js" type="text/javascript"></script>
 <script src="angular-touch.js" type="text/javascript"></script>
 <script src="angular-local-storage.js" type="text/javascript"></script>
 <script src="ui-utils.js" type="text/javascript"></script>
-<script src="libs/main.js"></script>
-<script src="code.js" type="text/javascript"></script>
- 
-<script type="text/javascript" src="js/angular.integralui.min.js"></script>
-<script type="text/javascript" src="js/angular.integralui.menu.min.js"></script>
-
+<script src="leancanvas.js" type="text/javascript"></script>
 
 </body>
 </html>
