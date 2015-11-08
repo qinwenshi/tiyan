@@ -190,7 +190,7 @@
             toolbar.append(
                 $('<div />', {
                     'id': 'pia_config_' + index.toString(),
-                    'class': 'PIAconfig PIAicon'
+                    'class': 'PIAconfig PIAicon ui-icon ui-icon-gear '
                 }).click(function (e) {
                     var id = obj.data('PIA-id');
                     $('#idPostIt_' + id + ' > .back').css('visibility', 'visible');
@@ -216,16 +216,43 @@
                 })
             );
         }*/
+        if(!!options.belongsTo && options.belongsTo=='customerSegments')
+            toolbar.append(
+                $('<div />', {
+                    'id': 'pia_vp_' + index.toString(), 
+                    'class': 'ui-icon ui-icon-person',
+                    'style': 'float:right;padding-right:.2em;cursor: pointer;'
+                })
+                .click(function (e) {
+                    var id = obj.data('PIA-id');
+                    alert('我很欣慰，你想看看这个客户及价值的细节，但是这个功能还没有实现，你的客户是'+options.description);
+                    e.preventDefault();
+                })
+            );
+
+        if(!!options.belongsTo && options.belongsTo=='keyPartners')
+            toolbar.append(
+                $('<div />', {
+                    'id': 'pia_kp_' + index.toString(), 
+                    'class': 'ui-icon ui-icon-comment',
+                    'style': 'float:right;padding-right:.2em;cursor: pointer;'
+                })
+                .click(function (e) {
+                    var id = obj.data('PIA-id');
+                    alert("我很欣慰，你想看看这个合作伙伴的细节，但是这个功能还没有实现，你的合作伙伴是："+options.description);
+                    e.preventDefault();
+                })
+            );
         //Delete icon
         if (options.removable) {
-            toolbar.append($('<div />', { 'id': 'pia_delete_' + index.toString(), 'class': 'PIAdelete PIAicon'})
+            toolbar.append($('<div />', { 'id': 'pia_delete_' + index.toString(), 'class': 'PIAdelete PIAicon ui-icon ui-icon-trash'})
                 .click(function (e) {
                     if ($(this).parent().find('.ui-widget').length <= 0) {
                         var cont = '<div class="ui-widget float-left">' +
                             '<div class="PIAwarning">' +
                             '<span class="PIAdelwar float-left"></span>' +
-                            '<a id="sure_delete_' + index + '" href="#"><span class="PIAdelyes PIAicon float-right"></span></a>' +
-                            '<a id="cancel_' + index + '" href="#"><span class="PIAdelno PIAicon float-right"></span></a>' +
+                            '<a id="sure_delete_' + index + '" href="#"><span class="PIAdelyes PIAicon ui-icon ui-icon-circle-check float-right"></span></a>' +
+                            '<a id="cancel_' + index + '" href="#"><span class="PIAdelno PIAicon ui-icon ui-icon-circle-close float-right"></span></a>' +
                             '</div>' +
                             '</div>';
                         $(this).parent().append(cont);
@@ -590,6 +617,8 @@
                 return $(this);
             }
         }
+
+        
     });
 
     // Default Plugin Vars
