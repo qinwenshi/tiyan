@@ -17,6 +17,7 @@
 
         <link rel="stylesheet" href="css/integralui.menu.css" />
         <link rel="stylesheet" href="css/themes/theme-flat-light.css" />
+        <link href="css/feedback.css" rel="stylesheet" />
 
 </head>
 
@@ -31,6 +32,8 @@
                 <p>
                     <button ng-click="snapShot()">存新版</button>
                     <button ng-click="clearAll()">重置</button>
+                    <button ng-click="launchComments()">备注</button>
+
                     <iui-menu name="{{menuName}}" items="menuData" item-click='loadItem(e)' displayMode="vertical" item-icon="defaultIcon">
                     </iui-menu>
                     <div style="clear: both;height:80px;"></div>
@@ -81,9 +84,16 @@
 <script type="text/javascript" src="js/angular.integralui.min.js"></script>
 <script type="text/javascript" src="js/angular.integralui.menu.min.js"></script>
 
-<script src="http://www.protonotes.com/js/protonotes.js" type="text/javascript"></script>
+<script type="text/javascript" src="libs/html2canvas.js"></script>
+
+<script src="snapshot.js"></script>
+    
+<!--
+<script src="libs/feedback.js"></script>
 <script type="text/javascript">
-var groupnumber="1BTl9ySJEeAu";
-</script>
+      $(document).ready(function() {
+        Feedback({h2cPath:'libs/html2canvas.js'});
+      });      
+</script>-->
 </body>
 </html>

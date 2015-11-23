@@ -69,6 +69,7 @@ app.controller('RootController', ["$scope", 'localStorageService', "$timeout", "
   function($scope, localStorageService, $timeout, $menuService) {
     var storedBusinessModel = localStorageService.get('localBusinessModel');
     var storedHistory = localStorageService.get('localHistory');
+
     $scope.doc = storedBusinessModel || doc;
     $scope.history = storedHistory || [];
 
@@ -146,6 +147,10 @@ app.controller('RootController', ["$scope", 'localStorageService', "$timeout", "
       $scope.history = [];
     };
 
+    $scope.launchComments = function(){
+      window.launchComments();
+    };
+
     function loadFromStr(docStr){
       if(docStr != null){
         var lines = docStr.split('\n');
@@ -200,6 +205,7 @@ app.controller('SectionController', function($scope) {
           'minWidth'        : 70, //resizable min-height
           'belongsTo'       : element.id
         });
+        $event.stopPropagation();
     };
 });
 
