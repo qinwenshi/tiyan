@@ -216,33 +216,7 @@
                 })
             );
         }*/
-        if(!!options.belongsTo && options.belongsTo=='customerSegments')
-            toolbar.append(
-                $('<div />', {
-                    'id': 'pia_vp_' + index.toString(), 
-                    'class': 'ui-icon ui-icon-person',
-                    'style': 'float:right;padding-right:.2em;cursor: pointer;'
-                })
-                .click(function (e) {
-                    var id = obj.data('PIA-id');
-                    alert('我很欣慰，你想看看这个客户及价值的细节，但是这个功能还没有实现，你的客户是'+options.description);
-                    e.preventDefault();
-                })
-            );
-
-        if(!!options.belongsTo && options.belongsTo=='keyPartners')
-            toolbar.append(
-                $('<div />', {
-                    'id': 'pia_kp_' + index.toString(), 
-                    'class': 'ui-icon ui-icon-comment',
-                    'style': 'float:right;padding-right:.2em;cursor: pointer;'
-                })
-                .click(function (e) {
-                    var id = obj.data('PIA-id');
-                    alert("我很欣慰，你想看看这个合作伙伴的细节，但是这个功能还没有实现，你的合作伙伴是："+options.description);
-                    e.preventDefault();
-                })
-            );
+        
         //Delete icon
         if (options.removable) {
             toolbar.append($('<div />', { 'id': 'pia_delete_' + index.toString(), 'class': 'PIAdelete PIAicon ui-icon ui-icon-trash'})
@@ -372,6 +346,7 @@
             options.posX = obj.offset().top + parseInt(options.posX, 10) + (index * 5);
             options.posX += "px";
             options.posY = obj.offset().left + parseInt(options.posY, 10) + (index * 5);
+
             options.posY += "px";
         }
         //Modify final Postit Object
