@@ -46,13 +46,15 @@ var launchComments = function(){
 
                 }, 100);
     },
+
     displayImage = function(){
         var imgData = data();    
         if ( imgData !== undefined ) {
             var img = new Image();
             img.src = imgData;
             img.style.width = $('.container').width();
-            $('body').append( img );
+            img.id = 'commentsBackground';
+            $('.table-row').append( img );
         }
     };
 

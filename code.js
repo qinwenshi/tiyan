@@ -148,7 +148,14 @@ app.controller('RootController', ["$scope", 'localStorageService', "$timeout", "
     };
 
     $scope.launchComments = function(){
-      window.launchComments();
+      tableIsHidden = $('.table').is(":hidden");
+      if(!tableIsHidden){
+        $('#commentsBackground').remove();
+        window.launchComments();  
+      }
+      
+      $('.table').toggle(tableIsHidden);
+      $('#commentsBackground').toggle(!tableIsHidden);
     };
 
     function loadFromStr(docStr){
