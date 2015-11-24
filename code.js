@@ -148,14 +148,18 @@ app.controller('RootController', ["$scope", 'localStorageService', "$timeout", "
     };
 
     $scope.launchComments = function(){
-      tableIsHidden = $('.table').is(":hidden");
+      tableIsHidden = $('.canvas-table').is(":hidden");
       if(!tableIsHidden){
-        $('#commentsBackground').remove();
-        window.launchComments();  
+        $('#preViewPic').remove();
+
+        window.launchComments({
+          width: $('.canvas-table').width(), 
+          height:$('.canvas-table').height() 
+        });  
       }
       
-      $('.table').toggle(tableIsHidden);
-      $('#commentsBackground').toggle(!tableIsHidden);
+      $('.canvas-table').toggle(tableIsHidden);
+      $('#preViewPic').toggle(!tableIsHidden);
     };
 
     function loadFromStr(docStr){

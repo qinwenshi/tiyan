@@ -1,8 +1,8 @@
 //$(document).ready(function(){
-var launchComments = function(){
+var launchComments = function(options){
     var $this = this,
     timer,
-    options = {},
+    options = options || {},
     getBounds = function( el ) {
         return el.getBoundingClientRect();
     },
@@ -46,24 +46,31 @@ var launchComments = function(){
 
                 }, 100);
     },
-
+    
     displayImage = function(){
         var imgData = data();    
         if ( imgData !== undefined ) {
             var img = new Image();
             img.src = imgData;
-            img.style.width = $('.container').width();
+            img.style.width = options.width;
             img.id = 'commentsBackground';
-            $('.table-row').append( img );
+            $('<div id = "preViewPic" class="preViewPic"/>').appendTo($('.table-row'));
+            $('#preViewPic').append(initContainer({
+                id     :img.id, 
+                picUrl :img.src, 
+                width  :options.width,
+                height :options.height
+            }));
+        //$('#preViewPic').append(img);
         }
     };
-
 
     runH2c(function(){
         captureImg();
         displayImage();
     });
-    
+
+        
         
 };
 //);

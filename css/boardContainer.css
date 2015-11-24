@@ -1,0 +1,111 @@
+.container {
+    background-size: contain;
+    position: relative;
+    background-repeat: no-repeat;
+    margin: auto;
+}
+
+body {
+    width: 100%;
+}
+
+#boardImg {
+    width: 100%;
+}
+
+.commentLabelView {
+    position: absolute;
+    background: url(../img/ic_label_add_normal.png) no-repeat;
+    width: 42px;
+    height: 32px;
+    border: 0;
+
+}
+
+.commentLabelView:hover {
+    background: url(../img/ic_label_add_pressed.png) no-repeat;
+}
+
+.commentsContainer {
+    background: url(../img/border_middle.jpg) no-repeat white;
+    background-size: 100% 100%;
+    width: 209px;
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+.commentsListView {
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 200px;
+    /*border: solid 1px black;*/
+}
+
+.replyBtn {
+    color: black;
+}
+
+.commentItemView{
+    text-align: left;
+
+}
+.commentItemSpan {
+    font-size: small;
+    padding-top: 1px;
+    text-align: left;
+}
+
+.img-comment-delete{
+    background: url(../img/ic_delete_normal.png) no-repeat;
+}
+
+hr {
+    background: url(../img/pic_comment_separator.png) no-repeat;
+    background-size: cover
+}
+
+.text {
+    width: 300px;
+    height: 500px;
+}
+
+.border-top {
+    background: url(../img/talk_border_top.png) no-repeat;
+    width: 240px;
+    height: 40px;
+}
+
+.border-bottom {
+    background: url(../img/talk_border_buttom.png) no-repeat;
+    width: 237px;
+    height: 30px;
+}
+
+.center {
+    background: url(../img/talk_border-main.png) no-repeat;
+    background-size: 100% 100%;
+    width: 237px;
+    height: 300px;
+}
+
+.borderDiv {
+    position: absolute;
+    z-index: 9999999999;
+}
+
+#submit {
+    background: url(../img/ic_btn_reply_normal.png) no-repeat center #a3cdb5;
+    width: 100px;
+    height: 24px;
+    border: solid 1px;
+}
+#cancel {
+    background: url(../img/ic_btn_cancel_normal.png) no-repeat center;
+    width: 100px;
+    height: 24px;
+    border: solid 1px;
+}
+
+.replyView {
+
+}
