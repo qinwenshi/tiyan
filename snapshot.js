@@ -65,9 +65,6 @@ var launchComments = function(options){
     runH2c(function(){
         captureImg();
         displayImage();
-    });
-
-        
-        
+    });        
 };
 //);

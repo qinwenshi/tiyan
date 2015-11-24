@@ -560,11 +560,12 @@ function saveAllComments() {
     comments = comments.replace(/"\[/g, '[');
     comments = comments.replace(/]"/g, ']');
 
-    $.post(server_url + '/picAddress/modifyComments/' + picId,
+    /*$.post(server_url + '/picAddress/modifyComments/' + picId,
         {'comments': comments}
     ).done(function (data) {
 
         }).fail(function () {
             //alert('保存数据失败，请重试！');
         });
+    */
 }
