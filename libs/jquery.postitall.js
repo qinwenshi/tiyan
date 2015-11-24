@@ -343,10 +343,9 @@
         if (options.position === "relative") {
             options.position = "absolute";
             //Increase top and left to prevent overlaying postits in the same position
-            options.posX = obj.offset().top + parseInt(options.posX, 10) + (index * 5);
+            options.posX = obj.position().top + parseInt(options.posX, 10) + (index * 5);
             options.posX += "px";
-            options.posY = obj.offset().left + parseInt(options.posY, 10) + (index * 5);
-
+            options.posY = obj.position().left + parseInt(options.posY, 10) + (index * 5);
             options.posY += "px";
         }
         //Modify final Postit Object
