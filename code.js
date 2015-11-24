@@ -153,8 +153,8 @@ app.controller('RootController', ["$scope", 'localStorageService', "$timeout", "
         $('#preViewPic').remove();
 
         window.launchComments({
-          width: $('.canvas-table').width(), 
-          height:$('.canvas-table').height() 
+          width: $('.canvas-table').width() + 1, 
+          height:$('.canvas-table').height()+ 1 
         });  
       }
       

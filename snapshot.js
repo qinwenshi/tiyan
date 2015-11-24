@@ -3,9 +3,6 @@ var launchComments = function(options){
     var $this = this,
     timer,
     options = options || {},
-    getBounds = function( el ) {
-        return el.getBoundingClientRect();
-    },
 
     runH2c = function(afterRender){
         try {
@@ -41,7 +38,7 @@ var launchComments = function(options){
                 ctx = canvas.getContext("2d");
                 timer = window.setTimeout(function(){
                     container = $('.container');
-                    ctx.drawImage($this.h2cCanvas, window.pageXOffset, window.pageYOffset, container.width(), container.height(), 0, 0, container.width(), container.height() );
+                    ctx.drawImage($this.h2cCanvas, window.pageXOffset, window.pageYOffset, options.width, options.height, 0, 0, options.width, options.height);
                     ctx.clip();
 
                 }, 100);
