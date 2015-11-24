@@ -113,9 +113,9 @@ var Container = Backbone.View.extend({
             return;
         }
 
-        var model = labelCollection.findWhere({'id': currentLabel.id});
-
         currentLabel = e.target;
+        var model = labelCollection.findWhere({'id': currentLabel.id});
+        
 
         if (model != undefined && (model.get('comments') === undefined || model.get('comments') === "" || model.get('comments') === "[]")) {
             this.collection.remove(model);
@@ -123,7 +123,7 @@ var Container = Backbone.View.extend({
             saveAllComments();
         }
 
-        this.borderView.showCommentsListView(model.posX, model.posY);
+        this.borderView.showCommentsListView(model.get('posX')-28, model.get('posY')-10);
         return false;
     },
 
