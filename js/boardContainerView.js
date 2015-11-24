@@ -76,6 +76,7 @@ var Container = Backbone.View.extend({
 
         var posX = e.offsetX-20,
             posY = e.clientY-10;
+
         var labelModel = new LabelModel({
             'id': guid(),
             'posX': posX,
@@ -83,7 +84,7 @@ var Container = Backbone.View.extend({
         });
         this.collection.push(labelModel);
 
-        this.borderView.showCommentsListView(posX, posY);
+        this.borderView.showCommentsListView(posX-28, posY-10);
     },
 
     /**
@@ -122,9 +123,7 @@ var Container = Backbone.View.extend({
             saveAllComments();
         }
 
-
-        this.borderView.showCommentsListView(currentLabel.offsetLeft, currentLabel.offsetTop + circleLabelRadius + 10);
-
+        this.borderView.showCommentsListView(model.posX, model.posY);
         return false;
     },
 
