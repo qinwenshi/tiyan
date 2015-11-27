@@ -77,7 +77,7 @@ var Container = Backbone.View.extend({
         }
 
         var posX = e.offsetX+50,
-            posY = e.clientY-10;
+            posY = e.offsetY+190;
 
         var labelModel = new LabelModel({
             'id': guid(),
