@@ -86,7 +86,7 @@
                 minDivHeight = options.minHeight;
             if (divHeight >= minDivHeight) {
                 options.height = divHeight;
-                obj.css('height', divHeight+20);
+                obj.css('height', divHeight+25);
                 if ($.ui) {
                     if (options.resizable) {
                         obj.resizable({
@@ -96,7 +96,7 @@
                 }
             } else if (divHeight < minDivHeight) {
                 options.height = minDivHeight;
-                minDivHeight += 20;
+                minDivHeight += 25;
                 obj.css('height', minDivHeight);
             }
             updateSavedPosition(obj)
@@ -387,7 +387,8 @@
         if ($.ui) {
             if (options.draggable) {
                 obj.draggable({
-                    handle: ".PIAtoolbar",
+                    handle: ".PIApostit",
+                    cancel: ".PIAeditable",
                     scroll: false,
                     start: function () {
                         //Remove draggable postit option
@@ -432,8 +433,9 @@
                 setOptions(options, true);
             });
 
-            var baseBgColors = ['#D1A60D', '#65853F', '#33A6CC', '#CA2617', '#F4C824', '#919E39', '#4ABEE4', '#DF3513'];
-            var baseTcColors = ['#D1A60D', '#65853F', '#33A6CC', '#CA2617', '#F4C824', '#2B2C2B','#919E39', '#4ABEE4', '#DF3513' ];
+            //var baseBgColors = ['#D1A60D', '#65853F', '#33A6CC', '#CA2617', '#F4C824', '#919E39', '#4ABEE4', '#DF3513'];
+            var baseBgColors = ['#EC5D57', '#70BF41', '#F5D328', '#51A7F9'];
+            var baseTcColors = ['#FFFFFF' ];
 
             if ($.fn.colorPicker) {
                 $('#minicolors_bg_' + index).colorPicker(
@@ -487,8 +489,10 @@
                 //var id = $(this).closest('.PIApostit').children().attr('data-id');
                 var id = obj.data('PIA-id');
                 $('#idPostIt_' + id + ' > .front').css('visibility', 'visible');
+
                 $('#idPostIt_' + id).parent().removeClass('flip', function () {
                     $('#idPostIt_' + id + ' > .back').css('visibility', 'hidden');
+                    
                 });
                 e.preventDefault();
         };

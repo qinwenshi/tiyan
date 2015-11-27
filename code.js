@@ -198,7 +198,8 @@ app.controller('RootController', ["$scope", 'localStorageService', "$timeout", "
 app.controller('SectionController', function($scope) {
 
     function getRandomColor() {
-      var colors = ['#D1A60D', '#65853F', '#33A6CC', '#CA2617', '#F4C824', '#919E39', '#4ABEE4', '#DF3513'];
+      //var colors = ['#D1A60D', '#65853F', '#33A6CC', '#CA2617', '#F4C824', '#919E39', '#4ABEE4', '#DF3513'];
+      var colors = ['#EC5D57', '#70BF41', '#F5D328'];
       return colors[Math.floor(Math.random() * 8)];
     }
 
@@ -207,7 +208,7 @@ app.controller('SectionController', function($scope) {
         $(element).postitall({
           'textcolor'       : '#2B2C2B',
           'backgroundcolor' : getRandomColor(),
-          'description'     : 'New Item',
+          'description'     : '新条目',
           'newPostit'       : true,
           'autoheight'      : true,
           'height'          : 20, //height
