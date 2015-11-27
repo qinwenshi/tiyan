@@ -43,7 +43,9 @@ var Container = Backbone.View.extend({
         //3、样式设置以及添加到画布中
         var $_el = label.render().$el;
         $_el.attr('id', labelModel.get('id'));
-        $_el.css('top', labelModel.get('posY') - circleLabelRadius).css('left', labelModel.get('posX') - circleLabelRadius);
+        $_el.css('top', labelModel.get('posY') - circleLabelRadius)
+        .css('left', labelModel.get('posX') - circleLabelRadius);
+        
         this.$el.append($_el);
 
         //saveAllComments();
@@ -74,7 +76,7 @@ var Container = Backbone.View.extend({
             return;
         }
 
-        var posX = e.offsetX-20,
+        var posX = e.offsetX+50,
             posY = e.clientY-10;
 
         var labelModel = new LabelModel({
@@ -249,7 +251,6 @@ var CommentsContainer = Backbone.View.extend({
         //3、保存当前选中的label所有的评论数据（json字符串格式）
         var labelModel = labelCollection.findWhere({'id': currentLabel.id});
         labelModel.set({'comments': JSON.stringify(this.commentsListView.collection)});//JSON.stringify(this.collection)
-
         // 4、提交到服务器
         saveAllComments();
 
@@ -317,7 +318,6 @@ var ReplyView = Backbone.View.extend({
     onCommentChange: function () {
         var value = this.$('#commentTextArea').val();
         this.model.set('comment', value);
-
     },
 
     /*clearText: function () {
@@ -558,6 +558,7 @@ function saveAllComments() {
     comments = comments.replace(/\\"/g, '"');
     comments = comments.replace(/"\[/g, '[');
     comments = comments.replace(/]"/g, ']');
+
 
     /*$.post(server_url + '/picAddress/modifyComments/' + picId,
         {'comments': comments}
