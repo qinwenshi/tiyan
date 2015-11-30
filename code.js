@@ -142,6 +142,8 @@ app.controller('RootController', ["$scope", 'localStorageService', "$timeout", "
         loadFromStr(arr[0].content);
     };
     $scope.clearAll = function(){
+      if(!confirm("确定要清空所有历史数据？"))
+        return;
       (localStorageService.clearAll)();
       $scope.doc = doc;
       $scope.history = [];
